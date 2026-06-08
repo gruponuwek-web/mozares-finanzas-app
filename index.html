@@ -26,7 +26,6 @@
             align-items: center;
             justify-content: center;
             padding: 1.5rem;
-            animation: fadeIn 0.6s ease-in;
         }
         
         .portada-container {
@@ -41,7 +40,6 @@
             font-weight: 900;
             color: #2d3e3b;
             margin-bottom: 2.5rem;
-            letter-spacing: -0.02em;
         }
         
         .portada-card {
@@ -49,7 +47,6 @@
             border-radius: 2.5rem;
             padding: 3rem 2rem;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(10px);
         }
         
         .reloj {
@@ -59,38 +56,27 @@
             color: #2d3e3b;
             letter-spacing: 0.15em;
             margin-bottom: 0.5rem;
-            line-height: 1;
         }
         
         .fecha {
             font-size: 0.95rem;
             color: #8b9693;
             margin-bottom: 2.5rem;
-            text-transform: capitalize;
-            letter-spacing: 0.05em;
-        }
-        
-        .frase-contenedor {
-            margin-bottom: 2.5rem;
-            min-height: 4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         
         .frase {
             font-size: 1.1rem;
             font-weight: 500;
             color: #6ba59a;
-            font-style: italic;
-            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            min-height: 4rem;
+            display: flex;
+            align-items: center;
         }
         
         .pregunta {
             margin-bottom: 2rem;
             font-weight: 600;
-            color: #2d3e3b;
-            font-size: 1rem;
         }
         
         .botones-usuario {
@@ -107,7 +93,7 @@
             font-size: 1rem;
             color: white;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
@@ -121,17 +107,11 @@
         
         .btn-usuario:hover {
             transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
-        .btn-usuario:active {
-            transform: translateY(-2px);
-        }
-        
-        /* ===== NAVEGACIÓN ===== */
+        /* ===== NAVBAR ===== */
         .navbar {
             background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
@@ -151,7 +131,6 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.75rem;
             font-weight: 700;
-            color: #2d3e3b;
         }
         
         .btn-salir {
@@ -162,12 +141,6 @@
             border-radius: 1rem;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .btn-salir:hover {
-            background: #d4765f;
-            transform: translateY(-2px);
         }
         
         /* ===== DASHBOARD ===== */
@@ -175,14 +148,12 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 2.5rem 1.5rem;
-            animation: fadeIn 0.6s ease-in;
         }
         
         .dashboard-titulo {
             font-family: 'Playfair Display', serif;
             font-size: 2.2rem;
             font-weight: 700;
-            color: #2d3e3b;
             margin-bottom: 2.5rem;
         }
         
@@ -192,7 +163,6 @@
             gap: 1rem;
             margin-bottom: 2.5rem;
             border-bottom: 2px solid rgba(107, 165, 154, 0.2);
-            overflow-x: auto;
         }
         
         .tab-btn {
@@ -205,7 +175,6 @@
             cursor: pointer;
             border-bottom: 3px solid transparent;
             transition: all 0.3s;
-            white-space: nowrap;
         }
         
         .tab-btn.active {
@@ -220,27 +189,11 @@
             padding: 1.8rem;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
             margin-bottom: 1.5rem;
-            transition: all 0.3s;
-        }
-        
-        .card:hover {
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
-        }
-        
-        .card-label {
-            font-size: 0.8rem;
-            color: #8b9693;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
         }
         
         .card-titulo {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #2d3e3b;
             margin-bottom: 1rem;
         }
         
@@ -251,7 +204,7 @@
             color: #6ba59a;
         }
         
-        .grid-cuentas {
+        .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
@@ -261,35 +214,19 @@
         /* ===== TRANSACCIONES ===== */
         .transaccion-item {
             display: flex;
-            align-items: center;
             justify-content: space-between;
             padding: 1rem 0;
             border-bottom: 1px solid rgba(107, 165, 154, 0.1);
         }
         
-        .transaccion-item:last-child {
-            border-bottom: none;
-        }
-        
-        .transaccion-info {
-            flex: 1;
-        }
-        
         .transaccion-tipo {
             font-weight: 600;
-            color: #2d3e3b;
             margin-bottom: 0.25rem;
         }
         
         .transaccion-fecha {
             font-size: 0.85rem;
             color: #8b9693;
-        }
-        
-        .transaccion-monto {
-            font-family: 'Courier Prime', monospace;
-            font-weight: 700;
-            font-size: 1.2rem;
         }
         
         .monto-gasto {
@@ -309,21 +246,18 @@
             display: block;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: #2d3e3b;
-            font-size: 0.95rem;
         }
         
-        .form-input {
+        .form-input, .form-select {
             width: 100%;
             padding: 0.8rem 1rem;
             border: 2px solid rgba(107, 165, 154, 0.2);
             border-radius: 0.8rem;
             font-size: 1rem;
             font-family: inherit;
-            transition: all 0.3s;
         }
         
-        .form-input:focus {
+        .form-input:focus, .form-select:focus {
             outline: none;
             border-color: #6ba59a;
             box-shadow: 0 0 0 3px rgba(107, 165, 154, 0.1);
@@ -337,17 +271,14 @@
             border-radius: 0.8rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
             width: 100%;
             margin-top: 1rem;
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(107, 165, 154, 0.3);
         }
         
-        /* ===== OCULTAR ===== */
         .hidden {
             display: none !important;
         }
@@ -358,46 +289,6 @@
         
         .tab-content.active {
             display: block;
-        }
-        
-        /* ===== ANIMACIONES ===== */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .portada-titulo {
-                font-size: 2.5rem;
-            }
-            
-            .reloj {
-                font-size: 2.5rem;
-            }
-            
-            .dashboard-titulo {
-                font-size: 1.8rem;
-            }
-            
-            .grid-cuentas {
-                grid-template-columns: 1fr;
-            }
-            
-            .tabs {
-                flex-wrap: wrap;
-            }
-            
-            .tab-btn {
-                padding: 0.8rem 1rem;
-                font-size: 0.9rem;
-            }
         }
     </style>
 </head>
@@ -410,9 +301,7 @@
         <div class="portada-card">
             <div class="reloj" id="reloj">00:00:00</div>
             <div class="fecha" id="fecha">Lunes, 1 de enero</div>
-            <div class="frase-contenedor">
-                <p class="frase" id="frase">Cargando frase del día...</p>
-            </div>
+            <p class="frase" id="frase">Cargando...</p>
             <p class="pregunta">¿Quién eres?</p>
             <div class="botones-usuario">
                 <button class="btn-usuario btn-el" onclick="iniciarSesion('el')">💙 Él</button>
@@ -424,7 +313,6 @@
 
 <!-- DASHBOARD -->
 <div id="dashboard" class="hidden">
-    <!-- NAVBAR -->
     <div class="navbar">
         <div class="navbar-content">
             <h1 class="navbar-titulo">💚 Finanzas Mozares</h1>
@@ -432,22 +320,19 @@
         </div>
     </div>
     
-    <!-- CONTENIDO PRINCIPAL -->
     <div class="dashboard">
         <h2 class="dashboard-titulo">📊 Dashboard - <span id="usuario-nombre">Él</span></h2>
         
         <!-- TABS -->
         <div class="tabs">
-            <button class="tab-btn active" onclick="cambiarTab('resumen')">Resumen</button>
-            <button class="tab-btn" onclick="cambiarTab('cuentas')">Cuentas</button>
-            <button class="tab-btn" onclick="cambiarTab('transacciones')">Transacciones</button>
-            <button class="tab-btn" onclick="cambiarTab('presupuesto')">Presupuesto</button>
+            <button class="tab-btn active" onclick="cambiarTab('resumen', this)">Resumen</button>
+            <button class="tab-btn" onclick="cambiarTab('cuentas', this)">Cuentas</button>
+            <button class="tab-btn" onclick="cambiarTab('transacciones', this)">Transacciones</button>
         </div>
         
         <!-- RESUMEN -->
         <div id="tab-resumen" class="tab-content active">
-            <div class="grid-cuentas" id="cuentas-resumen"></div>
-            
+            <div class="grid-2" id="cuentas-resumen"></div>
             <div class="card">
                 <h3 class="card-titulo">💰 Últimas transacciones</h3>
                 <div id="transacciones-recientes"></div>
@@ -456,86 +341,51 @@
         
         <!-- CUENTAS -->
         <div id="tab-cuentas" class="tab-content">
-            <div class="grid-cuentas" id="cuentas-detalle"></div>
-            
+            <div class="grid-2" id="cuentas-lista"></div>
             <div class="card">
-                <h3 class="card-titulo">➕ Agregar nueva cuenta</h3>
+                <h3 class="card-titulo">➕ Agregar cuenta</h3>
                 <div class="form-grupo">
-                    <label class="form-label">Nombre de la cuenta</label>
-                    <input type="text" class="form-input" id="nueva-cuenta-nombre" placeholder="Ej: Tarjeta de débito">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-input" id="new-cuenta-nombre" placeholder="Ej: Tarjeta">
                 </div>
                 <div class="form-grupo">
-                    <label class="form-label">Saldo inicial</label>
-                    <input type="number" class="form-input" id="nueva-cuenta-saldo" placeholder="0.00">
+                    <label class="form-label">Saldo</label>
+                    <input type="number" class="form-input" id="new-cuenta-saldo" placeholder="0.00">
                 </div>
-                <button class="btn-primary" onclick="agregarCuenta()">Crear cuenta</button>
+                <button class="btn-primary" onclick="agregarCuenta()">Crear</button>
             </div>
         </div>
         
         <!-- TRANSACCIONES -->
         <div id="tab-transacciones" class="tab-content">
             <div class="card">
-                <h3 class="card-titulo">📝 Registrar transacción</h3>
+                <h3 class="card-titulo">📝 Registrar</h3>
                 <div class="form-grupo">
                     <label class="form-label">Tipo</label>
-                    <select class="form-input" id="transaccion-tipo">
-                        <option value="gasto">Gasto</option>
-                        <option value="ingreso">Ingreso</option>
-                        <option value="transferencia">Transferencia</option>
+                    <select class="form-select" id="new-tipo">
+                        <option>Gasto</option>
+                        <option>Ingreso</option>
                     </select>
                 </div>
                 <div class="form-grupo">
                     <label class="form-label">Monto</label>
-                    <input type="number" class="form-input" id="transaccion-monto" placeholder="0.00">
+                    <input type="number" class="form-input" id="new-monto" placeholder="0.00">
                 </div>
                 <div class="form-grupo">
                     <label class="form-label">Descripción</label>
-                    <input type="text" class="form-input" id="transaccion-desc" placeholder="Ej: Supermercado">
+                    <input type="text" class="form-input" id="new-desc" placeholder="Ej: Supermercado">
                 </div>
                 <button class="btn-primary" onclick="agregarTransaccion()">Registrar</button>
             </div>
-            
             <div class="card">
                 <h3 class="card-titulo">📋 Historial</h3>
-                <div id="transacciones-historial"></div>
-            </div>
-        </div>
-        
-        <!-- PRESUPUESTO -->
-        <div id="tab-presupuesto" class="tab-content">
-            <div class="card">
-                <h3 class="card-titulo">📊 Presupuesto mensual</h3>
-                <p style="color: #8b9693; margin-bottom: 1.5rem;">Próximamente podrás establecer y monitorear tu presupuesto mensual por categoría.</p>
-                <p style="color: #6ba59a; font-weight: 600;">✨ Funcionalidad en desarrollo</p>
+                <div id="transacciones-lista"></div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js"></script>
-
 <script>
-// Firebase Config - ACTUALIZADO
-const firebaseConfig = {
-    apiKey: "AIzaSyAySxMq3ATRLPfGzpj07-i_1ayhrumecbs",
-    authDomain: "mozares133-finanzas.firebaseapp.com",
-    databaseURL: "https://mozares133-finanzas-default-rtdb.firebaseio.com",
-    projectId: "mozares133-finanzas",
-    storageBucket: "mozares133-finanzas.firebasestorage.app",
-    messagingSenderId: "169310898611",
-    appId: "1:169310898611:web:dcfafd3ae8902ab9dfe3c6"
-};
-
-const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.database(app);
-
-// Variables globales
-let usuarioActual = null;
-let cuentas = [];
-let transacciones = [];
-
 const frases = [
     '💚 Juntos construimos nuestro futuro',
     '💰 Dinero es herramienta, no preocupación',
@@ -547,134 +397,94 @@ const frases = [
     '🏠 Nuestro hogar merece lo mejor',
 ];
 
-// Inicializar cuentas
-cuentas = [
+let cuentas = [
     { id: 1, nombre: 'Débito Él', saldo: 15000 },
     { id: 2, nombre: 'Débito Ella', saldo: 12000 },
     { id: 3, nombre: 'Ahorros Familia', saldo: 50000 },
 ];
 
-transacciones = [
-    { id: 1, tipo: 'gasto', monto: 500, desc: 'Supermercado', fecha: '2026-06-08' },
-    { id: 2, tipo: 'ingreso', monto: 2000, desc: 'Pago de trabajo', fecha: '2026-06-07' },
+let transacciones = [
+    { id: 1, tipo: 'Gasto', monto: 500, desc: 'Supermercado', fecha: '2026-06-08' },
+    { id: 2, tipo: 'Ingreso', monto: 2000, desc: 'Pago trabajo', fecha: '2026-06-07' },
 ];
 
-// Actualizar reloj
 function actualizarReloj() {
     const ahora = new Date();
     document.getElementById('reloj').textContent = ahora.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    document.getElementById('fecha').textContent = ahora.toLocaleDateString('es-MX', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-    const frase = frases[ahora.getDate() % frases.length];
-    document.getElementById('frase').textContent = `"${frase}"`;
+    document.getElementById('fecha').textContent = ahora.toLocaleDateString('es-MX', { weekday: 'long', day: 'numeric', month: 'long' });
+    document.getElementById('frase').textContent = `"${frases[ahora.getDate() % frases.length]}"`;
 }
 
-// Iniciar sesión
-function iniciarSesion(usuario) {
-    usuarioActual = usuario;
+function iniciarSesion(user) {
     document.getElementById('portada').classList.add('hidden');
     document.getElementById('dashboard').classList.remove('hidden');
-    document.getElementById('usuario-nombre').textContent = usuario === 'el' ? '💙 Él' : '🧡 Ella';
-    renderizarDashboard();
+    document.getElementById('usuario-nombre').textContent = user === 'el' ? '💙 Él' : '🧡 Ella';
+    mostrarDatos();
 }
 
-// Cerrar sesión
 function cerrarSesion() {
-    usuarioActual = null;
     document.getElementById('portada').classList.remove('hidden');
     document.getElementById('dashboard').classList.add('hidden');
 }
 
-// Cambiar tab
-function cambiarTab(tab) {
-    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-    document.getElementById(`tab-${tab}`).classList.add('active');
-    event.target.classList.add('active');
+function cambiarTab(tab, btn) {
+    document.querySelectorAll('.tab-content').forEach(e => e.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(e => e.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    btn.classList.add('active');
 }
 
-// Renderizar dashboard
-function renderizarDashboard() {
+function mostrarDatos() {
     // Resumen
     let html = '';
-    cuentas.forEach(cuenta => {
-        html += `
-            <div class="card">
-                <p class="card-label">Cuenta</p>
-                <h3 class="card-titulo">${cuenta.nombre}</h3>
-                <p class="card-valor">$${cuenta.saldo.toLocaleString('es-MX')}</p>
-            </div>
-        `;
+    cuentas.forEach(c => {
+        html += `<div class="card"><p style="color: #8b9693; font-size: 0.85rem; text-transform: uppercase;">Cuenta</p><h3 class="card-titulo">${c.nombre}</h3><p class="card-valor">$${c.saldo.toLocaleString('es-MX')}</p></div>`;
     });
     document.getElementById('cuentas-resumen').innerHTML = html;
-    
-    // Detalle de cuentas
-    document.getElementById('cuentas-detalle').innerHTML = html;
+    document.getElementById('cuentas-lista').innerHTML = html;
     
     // Transacciones recientes
-    let transHTML = '';
-    transacciones.slice(0, 3).forEach(trans => {
-        const icono = trans.tipo === 'gasto' ? '📉' : '📈';
-        const clase = trans.tipo === 'gasto' ? 'monto-gasto' : 'monto-ingreso';
-        const signo = trans.tipo === 'gasto' ? '-' : '+';
-        transHTML += `
-            <div class="transaccion-item">
-                <div class="transaccion-info">
-                    <p class="transaccion-tipo">${icono} ${trans.desc}</p>
-                    <p class="transaccion-fecha">${trans.fecha}</p>
-                </div>
-                <p class="transaccion-monto ${clase}">${signo}$${trans.monto.toLocaleString('es-MX')}</p>
-            </div>
-        `;
+    let trans = '';
+    transacciones.slice(0, 3).forEach(t => {
+        const icon = t.tipo === 'Gasto' ? '📉' : '📈';
+        const clase = t.tipo === 'Gasto' ? 'monto-gasto' : 'monto-ingreso';
+        const signo = t.tipo === 'Gasto' ? '-' : '+';
+        trans += `<div class="transaccion-item"><div><p class="transaccion-tipo">${icon} ${t.desc}</p><p class="transaccion-fecha">${t.fecha}</p></div><p class="transaccion-monto ${clase}">${signo}$${t.monto.toLocaleString('es-MX')}</p></div>`;
     });
-    document.getElementById('transacciones-recientes').innerHTML = transHTML;
-    
-    // Historial
-    let historiHTML = '';
-    transacciones.forEach(trans => {
-        const icono = trans.tipo === 'gasto' ? '📉' : '📈';
-        const clase = trans.tipo === 'gasto' ? 'monto-gasto' : 'monto-ingreso';
-        const signo = trans.tipo === 'gasto' ? '-' : '+';
-        historiHTML += `
-            <div class="transaccion-item">
-                <div class="transaccion-info">
-                    <p class="transaccion-tipo">${icono} ${trans.desc}</p>
-                    <p class="transaccion-fecha">${trans.fecha}</p>
-                </div>
-                <p class="transaccion-monto ${clase}">${signo}$${trans.monto.toLocaleString('es-MX')}</p>
-            </div>
-        `;
-    });
-    document.getElementById('transacciones-historial').innerHTML = historiHTML;
+    document.getElementById('transacciones-recientes').innerHTML = trans;
+    document.getElementById('transacciones-lista').innerHTML = transacciones.map(t => {
+        const icon = t.tipo === 'Gasto' ? '📉' : '📈';
+        const clase = t.tipo === 'Gasto' ? 'monto-gasto' : 'monto-ingreso';
+        const signo = t.tipo === 'Gasto' ? '-' : '+';
+        return `<div class="transaccion-item"><div><p class="transaccion-tipo">${icon} ${t.desc}</p><p class="transaccion-fecha">${t.fecha}</p></div><p class="transaccion-monto ${clase}">${signo}$${t.monto.toLocaleString('es-MX')}</p></div>`;
+    }).join('');
 }
 
 function agregarCuenta() {
-    const nombre = document.getElementById('nueva-cuenta-nombre').value;
-    const saldo = parseFloat(document.getElementById('nueva-cuenta-saldo').value);
-    if (!nombre || !saldo) return;
-    
-    cuentas.push({ id: Date.now(), nombre, saldo });
-    document.getElementById('nueva-cuenta-nombre').value = '';
-    document.getElementById('nueva-cuenta-saldo').value = '';
-    renderizarDashboard();
+    const nombre = document.getElementById('new-cuenta-nombre').value;
+    const saldo = parseFloat(document.getElementById('new-cuenta-saldo').value);
+    if (nombre && saldo) {
+        cuentas.push({ id: Date.now(), nombre, saldo });
+        document.getElementById('new-cuenta-nombre').value = '';
+        document.getElementById('new-cuenta-saldo').value = '';
+        mostrarDatos();
+    }
 }
 
 function agregarTransaccion() {
-    const tipo = document.getElementById('transaccion-tipo').value;
-    const monto = parseFloat(document.getElementById('transaccion-monto').value);
-    const desc = document.getElementById('transaccion-desc').value;
-    if (!monto || !desc) return;
-    
-    transacciones.push({ id: Date.now(), tipo, monto, desc, fecha: new Date().toISOString().split('T')[0] });
-    document.getElementById('transaccion-monto').value = '';
-    document.getElementById('transaccion-desc').value = '';
-    renderizarDashboard();
+    const tipo = document.getElementById('new-tipo').value;
+    const monto = parseFloat(document.getElementById('new-monto').value);
+    const desc = document.getElementById('new-desc').value;
+    if (monto && desc) {
+        transacciones.unshift({ id: Date.now(), tipo, monto, desc, fecha: new Date().toISOString().split('T')[0] });
+        document.getElementById('new-monto').value = '';
+        document.getElementById('new-desc').value = '';
+        mostrarDatos();
+    }
 }
 
-// Inicializar
-window.addEventListener('load', () => {
-    actualizarReloj();
-    setInterval(actualizarReloj, 1000);
-});
+actualizarReloj();
+setInterval(actualizarReloj, 1000);
 </script>
 
 </body>
