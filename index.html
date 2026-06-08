@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>💚 Finanzas Mozares</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,7 +14,7 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
             background: linear-gradient(135deg, #faf8f3 0%, #f0ebe0 100%);
             min-height: 100vh;
             color: #2d3e3b;
@@ -25,33 +26,33 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem;
+            padding: 2rem;
         }
         
         .portada-container {
             text-align: center;
-            max-width: 420px;
-            width: 100%;
+            max-width: 450px;
         }
         
         .portada-titulo {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 900;
             color: #2d3e3b;
             margin-bottom: 2.5rem;
+            letter-spacing: -0.02em;
         }
         
         .portada-card {
             background: white;
-            border-radius: 2.5rem;
-            padding: 3rem 2rem;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+            border-radius: 3rem;
+            padding: 3.5rem 2.5rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
         }
         
         .reloj {
             font-family: 'Courier Prime', monospace;
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 700;
             color: #2d3e3b;
             letter-spacing: 0.15em;
@@ -59,24 +60,28 @@
         }
         
         .fecha {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #8b9693;
             margin-bottom: 2.5rem;
+            text-transform: capitalize;
         }
         
         .frase {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 500;
             color: #6ba59a;
             margin-bottom: 2.5rem;
-            min-height: 4rem;
+            min-height: 4.5rem;
             display: flex;
             align-items: center;
+            justify-content: center;
+            font-style: italic;
         }
         
         .pregunta {
             margin-bottom: 2rem;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 1.1rem;
         }
         
         .botones-usuario {
@@ -86,15 +91,15 @@
         }
         
         .btn-usuario {
-            padding: 1rem;
+            padding: 1.2rem;
             border: none;
-            border-radius: 1.5rem;
+            border-radius: 2rem;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: white;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
         
         .btn-el {
@@ -106,21 +111,23 @@
         }
         
         .btn-usuario:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
         }
         
         /* ===== NAVBAR ===== */
         .navbar {
             background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
             position: sticky;
             top: 0;
-            z-index: 100;
-            padding: 1rem 1.5rem;
+            z-index: 1000;
+            padding: 1.2rem 2rem;
         }
         
         .navbar-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             align-items: center;
@@ -129,99 +136,252 @@
         
         .navbar-titulo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.75rem;
+            font-size: 1.8rem;
             font-weight: 700;
+            color: #2d3e3b;
         }
         
-        .btn-salir {
-            background: #e88a7e;
-            color: white;
-            border: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 1rem;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        
-        /* ===== DASHBOARD ===== */
-        .dashboard {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2.5rem 1.5rem;
-        }
-        
-        .dashboard-titulo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 2.5rem;
-        }
-        
-        /* ===== TABS ===== */
-        .tabs {
+        .navbar-menu {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
-            border-bottom: 2px solid rgba(107, 165, 154, 0.2);
+            gap: 0.5rem;
+            align-items: center;
         }
         
-        .tab-btn {
+        .navbar-btn {
             background: none;
             border: none;
-            padding: 1rem 1.5rem;
+            padding: 0.8rem 1.5rem;
+            margin: 0 0.3rem;
             font-size: 1rem;
             font-weight: 600;
-            color: #8b9693;
+            color: #2d3e3b;
             cursor: pointer;
-            border-bottom: 3px solid transparent;
+            border-radius: 1rem;
             transition: all 0.3s;
         }
         
-        .tab-btn.active {
+        .navbar-btn.active {
+            background: #6ba59a;
+            color: white;
+        }
+        
+        .navbar-btn:hover {
+            background: rgba(107, 165, 154, 0.2);
+        }
+        
+        .btn-salir {
+            background: #e88a7e !important;
+            color: white !important;
+        }
+        
+        /* ===== CONTENIDO ===== */
+        .content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem;
+        }
+        
+        .section-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3e3b;
+            margin-bottom: 2rem;
+        }
+        
+        /* ===== DASHBOARD ===== */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .kpi-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            text-align: center;
+        }
+        
+        .kpi-label {
+            font-size: 0.9rem;
+            color: #8b9693;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .kpi-valor {
+            font-family: 'Courier Prime', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
             color: #6ba59a;
-            border-bottom-color: #6ba59a;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(107, 165, 154, 0.2);
+            border-radius: 10px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #6ba59a 0%, #d4a574 100%);
+            border-radius: 10px;
         }
         
         /* ===== CARDS ===== */
         .card {
             background: white;
-            border-radius: 1.5rem;
-            padding: 1.8rem;
+            border-radius: 1.8rem;
+            padding: 2.2rem;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
         
         .card-titulo {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d3e3b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
         }
         
-        .card-valor {
+        /* ===== PRESUPUESTO ===== */
+        .presupuesto-tabla {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .presupuesto-tabla th {
+            background: rgba(107, 165, 154, 0.1);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+            color: #2d3e3b;
+            border-bottom: 2px solid rgba(107, 165, 154, 0.2);
+        }
+        
+        .presupuesto-tabla td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(107, 165, 154, 0.1);
+        }
+        
+        .presupuesto-mes {
+            font-weight: 700;
+            color: #2d3e3b;
+        }
+        
+        .presupuesto-categoria {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(107, 165, 154, 0.15);
+            border-radius: 0.8rem;
+            font-size: 0.85rem;
+            color: #6ba59a;
+            margin-right: 0.3rem;
+        }
+        
+        .presupuesto-vencimiento {
+            color: #8b9693;
+            font-size: 0.9rem;
+        }
+        
+        .presupuesto-monto {
             font-family: 'Courier Prime', monospace;
-            font-size: 2.2rem;
             font-weight: 700;
             color: #6ba59a;
         }
         
-        .grid-2 {
+        /* ===== CUENTAS ===== */
+        .cuentas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
+        }
+        
+        .cuenta-card {
+            background: linear-gradient(135deg, rgba(107, 165, 154, 0.1) 0%, rgba(212, 165, 116, 0.05) 100%);
+            border: 2px solid rgba(107, 165, 154, 0.2);
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            position: relative;
+        }
+        
+        .cuenta-nombre {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2d3e3b;
+            margin-bottom: 1rem;
+        }
+        
+        .cuenta-saldo {
+            font-family: 'Courier Prime', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #6ba59a;
+            margin-bottom: 1rem;
+        }
+        
+        .cuenta-tipo {
+            font-size: 0.85rem;
+            color: #8b9693;
+            text-transform: uppercase;
+        }
+        
+        .cuenta-botones {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .btn-sm {
+            flex: 1;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 0.8rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-edit {
+            background: #d4a574;
+            color: white;
+        }
+        
+        .btn-delete {
+            background: #e88a7e;
+            color: white;
         }
         
         /* ===== TRANSACCIONES ===== */
         .transaccion-item {
             display: flex;
             justify-content: space-between;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(107, 165, 154, 0.1);
+            align-items: center;
+            padding: 1.2rem;
+            background: rgba(107, 165, 154, 0.05);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .transaccion-info {
+            flex: 1;
         }
         
         .transaccion-tipo {
-            font-weight: 600;
-            margin-bottom: 0.25rem;
+            font-weight: 700;
+            color: #2d3e3b;
+            margin-bottom: 0.3rem;
         }
         
         .transaccion-fecha {
@@ -229,11 +389,25 @@
             color: #8b9693;
         }
         
+        .transaccion-monto {
+            font-family: 'Courier Prime', monospace;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
         .monto-gasto {
             color: #e88a7e;
         }
         
-        .monto-ingreso {
+        .monto-obligatoria {
+            color: #f6a192;
+        }
+        
+        .monto-transferencia {
+            color: #8b9693;
+        }
+        
+        .monto-deposito {
             color: #6ba59a;
         }
         
@@ -244,51 +418,101 @@
         
         .form-label {
             display: block;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            color: #2d3e3b;
         }
         
         .form-input, .form-select {
             width: 100%;
-            padding: 0.8rem 1rem;
+            padding: 0.9rem 1.2rem;
             border: 2px solid rgba(107, 165, 154, 0.2);
-            border-radius: 0.8rem;
+            border-radius: 1rem;
             font-size: 1rem;
             font-family: inherit;
+            transition: all 0.3s;
         }
         
         .form-input:focus, .form-select:focus {
             outline: none;
             border-color: #6ba59a;
-            box-shadow: 0 0 0 3px rgba(107, 165, 154, 0.1);
+            box-shadow: 0 0 0 4px rgba(107, 165, 154, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
         }
         
         .btn-primary {
             background: linear-gradient(135deg, #6ba59a 0%, #5a9183 100%);
             color: white;
             border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 0.8rem;
-            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
+            transition: all 0.3s;
             width: 100%;
-            margin-top: 1rem;
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(107, 165, 154, 0.3);
         }
         
         .hidden {
             display: none !important;
         }
         
-        .tab-content {
+        .modal {
             display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
         }
         
-        .tab-content.active {
-            display: block;
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .portada-titulo {
+                font-size: 2.5rem;
+            }
+            
+            .reloj {
+                font-size: 2.5rem;
+            }
+            
+            .section-titulo {
+                font-size: 1.8rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -301,7 +525,7 @@
         <div class="portada-card">
             <div class="reloj" id="reloj">00:00:00</div>
             <div class="fecha" id="fecha">Lunes, 1 de enero</div>
-            <p class="frase" id="frase">Cargando...</p>
+            <p class="frase" id="frase">Cargando frase...</p>
             <p class="pregunta">¿Quién eres?</p>
             <div class="botones-usuario">
                 <button class="btn-usuario btn-el" onclick="iniciarSesion('el')">💙 Él</button>
@@ -311,77 +535,188 @@
     </div>
 </div>
 
+<!-- NAVBAR -->
+<div id="navbar" class="navbar hidden">
+    <div class="navbar-content">
+        <h1 class="navbar-titulo">💚 Finanzas Mozares</h1>
+        <div class="navbar-menu">
+            <button class="navbar-btn active" onclick="mostrarSeccion('dashboard')">Dashboard</button>
+            <button class="navbar-btn" onclick="mostrarSeccion('presupuesto')">Presupuesto</button>
+            <button class="navbar-btn" onclick="mostrarSeccion('cuentas')">Cuentas</button>
+            <button class="navbar-btn" onclick="mostrarSeccion('transacciones')">Transacciones</button>
+            <button class="navbar-btn btn-salir" onclick="cerrarSesion()">Salir</button>
+        </div>
+    </div>
+</div>
+
 <!-- DASHBOARD -->
-<div id="dashboard" class="hidden">
-    <div class="navbar">
-        <div class="navbar-content">
-            <h1 class="navbar-titulo">💚 Finanzas Mozares</h1>
-            <button class="btn-salir" onclick="cerrarSesion()">Salir</button>
+<div id="dashboard" class="content hidden">
+    <h2 class="section-titulo">📊 Dashboard - <span id="usuario-nombre">Él</span></h2>
+    
+    <div class="dashboard-grid">
+        <div class="kpi-card">
+            <p class="kpi-label">💰 Total de cuentas</p>
+            <p class="kpi-valor" id="kpi-total">$77,000</p>
+        </div>
+        <div class="kpi-card">
+            <p class="kpi-label">📊 Gasto este mes</p>
+            <p class="kpi-valor" id="kpi-gasto">$500</p>
+        </div>
+        <div class="kpi-card">
+            <p class="kpi-label">📈 Ingresos este mes</p>
+            <p class="kpi-valor" id="kpi-ingreso">$2,000</p>
+        </div>
+        <div class="kpi-card">
+            <p class="kpi-label">🎯 Balance neto</p>
+            <p class="kpi-valor" id="kpi-balance">$1,500</p>
         </div>
     </div>
     
-    <div class="dashboard">
-        <h2 class="dashboard-titulo">📊 Dashboard - <span id="usuario-nombre">Él</span></h2>
-        
-        <!-- TABS -->
-        <div class="tabs">
-            <button class="tab-btn active" onclick="cambiarTab('resumen', this)">Resumen</button>
-            <button class="tab-btn" onclick="cambiarTab('cuentas', this)">Cuentas</button>
-            <button class="tab-btn" onclick="cambiarTab('transacciones', this)">Transacciones</button>
+    <div class="card">
+        <h3 class="card-titulo">📊 Progreso mensual</h3>
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 65%;"></div>
         </div>
-        
-        <!-- RESUMEN -->
-        <div id="tab-resumen" class="tab-content active">
-            <div class="grid-2" id="cuentas-resumen"></div>
-            <div class="card">
-                <h3 class="card-titulo">💰 Últimas transacciones</h3>
-                <div id="transacciones-recientes"></div>
+        <p style="text-align: center; margin-top: 1rem; color: #8b9693; font-size: 0.9rem;">65% del mes completado</p>
+    </div>
+    
+    <div class="card">
+        <h3 class="card-titulo">💳 Tus cuentas</h3>
+        <div id="dashboard-cuentas"></div>
+    </div>
+    
+    <div class="card">
+        <h3 class="card-titulo">📋 Últimas transacciones</h3>
+        <div id="dashboard-transacciones"></div>
+    </div>
+</div>
+
+<!-- PRESUPUESTO -->
+<div id="presupuesto" class="content hidden">
+    <h2 class="section-titulo">💰 Presupuesto 2026</h2>
+    
+    <div class="card">
+        <table class="presupuesto-tabla">
+            <thead>
+                <tr>
+                    <th>Mes</th>
+                    <th>Categorías</th>
+                    <th>Vencimiento</th>
+                    <th>Monto</th>
+                </tr>
+            </thead>
+            <tbody id="presupuesto-tabla">
+                <tr>
+                    <td class="presupuesto-mes">Enero</td>
+                    <td><span class="presupuesto-categoria">Alimentación</span><span class="presupuesto-categoria">Transporte</span></td>
+                    <td class="presupuesto-vencimiento">2026-01-31</td>
+                    <td class="presupuesto-monto">$3,500</td>
+                </tr>
+                <tr>
+                    <td class="presupuesto-mes">Febrero</td>
+                    <td><span class="presupuesto-categoria">Servicios</span><span class="presupuesto-categoria">Entretenimiento</span></td>
+                    <td class="presupuesto-vencimiento">2026-02-28</td>
+                    <td class="presupuesto-monto">$2,800</td>
+                </tr>
+                <tr>
+                    <td class="presupuesto-mes">Marzo</td>
+                    <td><span class="presupuesto-categoria">Salud</span><span class="presupuesto-categoria">Educación</span></td>
+                    <td class="presupuesto-vencimiento">2026-03-31</td>
+                    <td class="presupuesto-monto">$4,200</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="card">
+        <h3 class="card-titulo">➕ Agregar presupuesto</h3>
+        <div class="form-grupo">
+            <label class="form-label">Mes</label>
+            <input type="month" class="form-input" id="new-presupuesto-mes">
+        </div>
+        <div class="form-grupo">
+            <label class="form-label">Categorías</label>
+            <input type="text" class="form-input" id="new-presupuesto-cat" placeholder="Ej: Alimentación, Transporte">
+        </div>
+        <div class="form-row">
+            <div class="form-grupo">
+                <label class="form-label">Vencimiento</label>
+                <input type="date" class="form-input" id="new-presupuesto-venc">
+            </div>
+            <div class="form-grupo">
+                <label class="form-label">Monto</label>
+                <input type="number" class="form-input" id="new-presupuesto-monto" placeholder="0.00">
             </div>
         </div>
-        
-        <!-- CUENTAS -->
-        <div id="tab-cuentas" class="tab-content">
-            <div class="grid-2" id="cuentas-lista"></div>
-            <div class="card">
-                <h3 class="card-titulo">➕ Agregar cuenta</h3>
-                <div class="form-grupo">
-                    <label class="form-label">Nombre</label>
-                    <input type="text" class="form-input" id="new-cuenta-nombre" placeholder="Ej: Tarjeta">
-                </div>
-                <div class="form-grupo">
-                    <label class="form-label">Saldo</label>
-                    <input type="number" class="form-input" id="new-cuenta-saldo" placeholder="0.00">
-                </div>
-                <button class="btn-primary" onclick="agregarCuenta()">Crear</button>
+        <button class="btn-primary" onclick="agregarPresupuesto()">Crear presupuesto</button>
+    </div>
+</div>
+
+<!-- CUENTAS -->
+<div id="cuentas" class="content hidden">
+    <h2 class="section-titulo">💳 Mis cuentas</h2>
+    
+    <div class="cuentas-grid" id="cuentas-lista"></div>
+    
+    <div class="card">
+        <h3 class="card-titulo">➕ Agregar nueva cuenta</h3>
+        <div class="form-row">
+            <div class="form-grupo">
+                <label class="form-label">Nombre de la cuenta</label>
+                <input type="text" class="form-input" id="new-cuenta-nombre" placeholder="Ej: Débito personal">
+            </div>
+            <div class="form-grupo">
+                <label class="form-label">Tipo de cuenta</label>
+                <select class="form-select" id="new-cuenta-tipo">
+                    <option>Débito</option>
+                    <option>Ahorros</option>
+                    <option>Crédito</option>
+                </select>
             </div>
         </div>
-        
-        <!-- TRANSACCIONES -->
-        <div id="tab-transacciones" class="tab-content">
-            <div class="card">
-                <h3 class="card-titulo">📝 Registrar</h3>
-                <div class="form-grupo">
-                    <label class="form-label">Tipo</label>
-                    <select class="form-select" id="new-tipo">
-                        <option>Gasto</option>
-                        <option>Ingreso</option>
-                    </select>
-                </div>
-                <div class="form-grupo">
-                    <label class="form-label">Monto</label>
-                    <input type="number" class="form-input" id="new-monto" placeholder="0.00">
-                </div>
-                <div class="form-grupo">
-                    <label class="form-label">Descripción</label>
-                    <input type="text" class="form-input" id="new-desc" placeholder="Ej: Supermercado">
-                </div>
-                <button class="btn-primary" onclick="agregarTransaccion()">Registrar</button>
+        <div class="form-grupo">
+            <label class="form-label">Saldo inicial</label>
+            <input type="number" class="form-input" id="new-cuenta-saldo" placeholder="0.00">
+        </div>
+        <button class="btn-primary" onclick="agregarCuenta()">Crear cuenta</button>
+    </div>
+</div>
+
+<!-- TRANSACCIONES -->
+<div id="transacciones" class="content hidden">
+    <h2 class="section-titulo">📝 Transacciones</h2>
+    
+    <div class="card">
+        <h3 class="card-titulo">➕ Registrar nueva transacción</h3>
+        <div class="form-row">
+            <div class="form-grupo">
+                <label class="form-label">Tipo</label>
+                <select class="form-select" id="new-trans-tipo">
+                    <option>Gasto</option>
+                    <option>Obligatoria</option>
+                    <option>Transferencia</option>
+                    <option>Depósito</option>
+                </select>
             </div>
-            <div class="card">
-                <h3 class="card-titulo">📋 Historial</h3>
-                <div id="transacciones-lista"></div>
+            <div class="form-grupo">
+                <label class="form-label">Monto</label>
+                <input type="number" class="form-input" id="new-trans-monto" placeholder="0.00">
             </div>
         </div>
+        <div class="form-grupo">
+            <label class="form-label">Descripción</label>
+            <input type="text" class="form-input" id="new-trans-desc" placeholder="Ej: Compra supermercado">
+        </div>
+        <div class="form-grupo">
+            <label class="form-label">Fecha</label>
+            <input type="date" class="form-input" id="new-trans-fecha">
+        </div>
+        <button class="btn-primary" onclick="agregarTransaccion()">Registrar</button>
+    </div>
+    
+    <div class="card">
+        <h3 class="card-titulo">📋 Historial de transacciones</h3>
+        <div id="transacciones-lista"></div>
     </div>
 </div>
 
@@ -398,93 +733,196 @@ const frases = [
 ];
 
 let cuentas = [
-    { id: 1, nombre: 'Débito Él', saldo: 15000 },
-    { id: 2, nombre: 'Débito Ella', saldo: 12000 },
-    { id: 3, nombre: 'Ahorros Familia', saldo: 50000 },
+    { id: 1, nombre: 'Débito Él', tipo: 'Débito', saldo: 15000, oculto: false },
+    { id: 2, nombre: 'Débito Ella', tipo: 'Débito', saldo: 12000, oculto: false },
+    { id: 3, nombre: 'Ahorros Familia', tipo: 'Ahorros', saldo: 50000, oculto: false },
 ];
 
 let transacciones = [
     { id: 1, tipo: 'Gasto', monto: 500, desc: 'Supermercado', fecha: '2026-06-08' },
-    { id: 2, tipo: 'Ingreso', monto: 2000, desc: 'Pago trabajo', fecha: '2026-06-07' },
+    { id: 2, tipo: 'Depósito', monto: 2000, desc: 'Pago de trabajo', fecha: '2026-06-07' },
+    { id: 3, tipo: 'Obligatoria', monto: 800, desc: 'Servicios', fecha: '2026-06-06' },
+];
+
+let presupuestos = [
+    { id: 1, mes: '2026-01', categorias: 'Alimentación, Transporte', vencimiento: '2026-01-31', monto: 3500 },
+    { id: 2, mes: '2026-02', categorias: 'Servicios, Entretenimiento', vencimiento: '2026-02-28', monto: 2800 },
+    { id: 3, mes: '2026-03', categorias: 'Salud, Educación', vencimiento: '2026-03-31', monto: 4200 },
 ];
 
 function actualizarReloj() {
     const ahora = new Date();
     document.getElementById('reloj').textContent = ahora.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     document.getElementById('fecha').textContent = ahora.toLocaleDateString('es-MX', { weekday: 'long', day: 'numeric', month: 'long' });
-    document.getElementById('frase').textContent = `"${frases[ahora.getDate() % frases.length]}"`;
+    const frase = frases[ahora.getDate() % frases.length];
+    document.getElementById('frase').textContent = `"${frase}"`;
 }
 
 function iniciarSesion(user) {
     document.getElementById('portada').classList.add('hidden');
+    document.getElementById('navbar').classList.remove('hidden');
     document.getElementById('dashboard').classList.remove('hidden');
     document.getElementById('usuario-nombre').textContent = user === 'el' ? '💙 Él' : '🧡 Ella';
-    mostrarDatos();
+    renderizar();
 }
 
 function cerrarSesion() {
     document.getElementById('portada').classList.remove('hidden');
-    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('navbar').classList.add('hidden');
+    document.querySelectorAll('.content').forEach(e => e.classList.add('hidden'));
 }
 
-function cambiarTab(tab, btn) {
-    document.querySelectorAll('.tab-content').forEach(e => e.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(e => e.classList.remove('active'));
-    document.getElementById('tab-' + tab).classList.add('active');
-    btn.classList.add('active');
+function mostrarSeccion(seccion) {
+    document.querySelectorAll('.content').forEach(e => e.classList.add('hidden'));
+    document.querySelectorAll('.navbar-btn').forEach(e => e.classList.remove('active'));
+    document.getElementById(seccion).classList.remove('hidden');
+    event.target.classList.add('active');
 }
 
-function mostrarDatos() {
-    // Resumen
-    let html = '';
-    cuentas.forEach(c => {
-        html += `<div class="card"><p style="color: #8b9693; font-size: 0.85rem; text-transform: uppercase;">Cuenta</p><h3 class="card-titulo">${c.nombre}</h3><p class="card-valor">$${c.saldo.toLocaleString('es-MX')}</p></div>`;
-    });
-    document.getElementById('cuentas-resumen').innerHTML = html;
-    document.getElementById('cuentas-lista').innerHTML = html;
+function renderizar() {
+    // Dashboard
+    const totalCuentas = cuentas.reduce((sum, c) => sum + c.saldo, 0);
+    document.getElementById('kpi-total').textContent = '$' + totalCuentas.toLocaleString('es-MX');
     
-    // Transacciones recientes
-    let trans = '';
-    transacciones.slice(0, 3).forEach(t => {
-        const icon = t.tipo === 'Gasto' ? '📉' : '📈';
-        const clase = t.tipo === 'Gasto' ? 'monto-gasto' : 'monto-ingreso';
-        const signo = t.tipo === 'Gasto' ? '-' : '+';
-        trans += `<div class="transaccion-item"><div><p class="transaccion-tipo">${icon} ${t.desc}</p><p class="transaccion-fecha">${t.fecha}</p></div><p class="transaccion-monto ${clase}">${signo}$${t.monto.toLocaleString('es-MX')}</p></div>`;
+    const gastoMes = transacciones.filter(t => t.tipo === 'Gasto').reduce((sum, t) => sum + t.monto, 0);
+    document.getElementById('kpi-gasto').textContent = '$' + gastoMes.toLocaleString('es-MX');
+    
+    const ingresoMes = transacciones.filter(t => t.tipo === 'Depósito').reduce((sum, t) => sum + t.monto, 0);
+    document.getElementById('kpi-ingreso').textContent = '$' + ingresoMes.toLocaleString('es-MX');
+    
+    const balance = ingresoMes - gastoMes;
+    document.getElementById('kpi-balance').textContent = '$' + balance.toLocaleString('es-MX');
+    
+    // Cuentas Dashboard
+    let cuentasHTML = '';
+    cuentas.forEach(c => {
+        cuentasHTML += `
+            <div style="padding: 1rem; background: rgba(107, 165, 154, 0.05); border-radius: 1rem; margin-bottom: 1rem;">
+                <p style="font-weight: 700; color: #2d3e3b;">${c.nombre}</p>
+                <p style="font-family: 'Courier Prime'; font-size: 1.5rem; color: #6ba59a; font-weight: 700;">$${c.saldo.toLocaleString('es-MX')}</p>
+            </div>
+        `;
     });
-    document.getElementById('transacciones-recientes').innerHTML = trans;
-    document.getElementById('transacciones-lista').innerHTML = transacciones.map(t => {
-        const icon = t.tipo === 'Gasto' ? '📉' : '📈';
-        const clase = t.tipo === 'Gasto' ? 'monto-gasto' : 'monto-ingreso';
-        const signo = t.tipo === 'Gasto' ? '-' : '+';
-        return `<div class="transaccion-item"><div><p class="transaccion-tipo">${icon} ${t.desc}</p><p class="transaccion-fecha">${t.fecha}</p></div><p class="transaccion-monto ${clase}">${signo}$${t.monto.toLocaleString('es-MX')}</p></div>`;
-    }).join('');
+    document.getElementById('dashboard-cuentas').innerHTML = cuentasHTML;
+    
+    // Transacciones Dashboard
+    let transHTML = '';
+    transacciones.slice(0, 5).forEach(t => {
+        const iconos = { Gasto: '📉', Depósito: '📈', Obligatoria: '📌', Transferencia: '↔️' };
+        const clases = { Gasto: 'monto-gasto', Depósito: 'monto-deposito', Obligatoria: 'monto-obligatoria', Transferencia: 'monto-transferencia' };
+        const signo = t.tipo === 'Depósito' ? '+' : '-';
+        transHTML += `
+            <div class="transaccion-item">
+                <div class="transaccion-info">
+                    <p class="transaccion-tipo">${iconos[t.tipo]} ${t.desc}</p>
+                    <p class="transaccion-fecha">${t.fecha}</p>
+                </div>
+                <p class="transaccion-monto ${clases[t.tipo]}">${signo}$${t.monto.toLocaleString('es-MX')}</p>
+            </div>
+        `;
+    });
+    document.getElementById('dashboard-transacciones').innerHTML = transHTML;
+    
+    // Cuentas página
+    let cuentasListaHTML = '';
+    cuentas.forEach(c => {
+        cuentasListaHTML += `
+            <div class="cuenta-card">
+                <p class="cuenta-nombre">${c.nombre}</p>
+                <p class="cuenta-tipo">${c.tipo}</p>
+                <p class="cuenta-saldo">${c.oculto ? '••••' : '$' + c.saldo.toLocaleString('es-MX')}</p>
+                <div class="cuenta-botones">
+                    <button class="btn-sm btn-edit" onclick="toggleOcultar(${c.id})">👁️ ${c.oculto ? 'Ver' : 'Ocultar'}</button>
+                    <button class="btn-sm btn-delete" onclick="eliminarCuenta(${c.id})">🗑️ Eliminar</button>
+                </div>
+            </div>
+        `;
+    });
+    document.getElementById('cuentas-lista').innerHTML = cuentasListaHTML;
+    
+    // Transacciones página
+    let transListaHTML = '';
+    transacciones.forEach(t => {
+        const iconos = { Gasto: '📉', Depósito: '📈', Obligatoria: '📌', Transferencia: '↔️' };
+        const clases = { Gasto: 'monto-gasto', Depósito: 'monto-deposito', Obligatoria: 'monto-obligatoria', Transferencia: 'monto-transferencia' };
+        const signo = ['Depósito', 'Transferencia'].includes(t.tipo) ? '+' : '-';
+        transListaHTML += `
+            <div class="transaccion-item">
+                <div class="transaccion-info">
+                    <p class="transaccion-tipo">${iconos[t.tipo]} ${t.desc} (${t.tipo})</p>
+                    <p class="transaccion-fecha">${t.fecha}</p>
+                </div>
+                <p class="transaccion-monto ${clases[t.tipo]}">${signo}$${t.monto.toLocaleString('es-MX')}</p>
+            </div>
+        `;
+    });
+    document.getElementById('transacciones-lista').innerHTML = transListaHTML;
+    
+    // Presupuesto
+    let presHTML = '';
+    presupuestos.forEach(p => {
+        presHTML += `
+            <tr>
+                <td class="presupuesto-mes">${new Date(p.mes + '-01').toLocaleDateString('es-MX', { month: 'long', year: 'numeric' })}</td>
+                <td>${p.categorias.split(', ').map(cat => `<span class="presupuesto-categoria">${cat}</span>`).join('')}</td>
+                <td class="presupuesto-vencimiento">${p.vencimiento}</td>
+                <td class="presupuesto-monto">$${p.monto.toLocaleString('es-MX')}</td>
+            </tr>
+        `;
+    });
+    document.getElementById('presupuesto-tabla').innerHTML = presHTML;
 }
 
 function agregarCuenta() {
     const nombre = document.getElementById('new-cuenta-nombre').value;
+    const tipo = document.getElementById('new-cuenta-tipo').value;
     const saldo = parseFloat(document.getElementById('new-cuenta-saldo').value);
     if (nombre && saldo) {
-        cuentas.push({ id: Date.now(), nombre, saldo });
+        cuentas.push({ id: Date.now(), nombre, tipo, saldo, oculto: false });
         document.getElementById('new-cuenta-nombre').value = '';
         document.getElementById('new-cuenta-saldo').value = '';
-        mostrarDatos();
+        renderizar();
     }
 }
 
 function agregarTransaccion() {
-    const tipo = document.getElementById('new-tipo').value;
-    const monto = parseFloat(document.getElementById('new-monto').value);
-    const desc = document.getElementById('new-desc').value;
+    const tipo = document.getElementById('new-trans-tipo').value;
+    const monto = parseFloat(document.getElementById('new-trans-monto').value);
+    const desc = document.getElementById('new-trans-desc').value;
+    const fecha = document.getElementById('new-trans-fecha').value || new Date().toISOString().split('T')[0];
     if (monto && desc) {
-        transacciones.unshift({ id: Date.now(), tipo, monto, desc, fecha: new Date().toISOString().split('T')[0] });
-        document.getElementById('new-monto').value = '';
-        document.getElementById('new-desc').value = '';
-        mostrarDatos();
+        transacciones.unshift({ id: Date.now(), tipo, monto, desc, fecha });
+        document.getElementById('new-trans-monto').value = '';
+        document.getElementById('new-trans-desc').value = '';
+        renderizar();
     }
+}
+
+function agregarPresupuesto() {
+    const mes = document.getElementById('new-presupuesto-mes').value;
+    const cat = document.getElementById('new-presupuesto-cat').value;
+    const venc = document.getElementById('new-presupuesto-venc').value;
+    const monto = parseFloat(document.getElementById('new-presupuesto-monto').value);
+    if (mes && cat && venc && monto) {
+        presupuestos.push({ id: Date.now(), mes, categorias: cat, vencimiento: venc, monto });
+        renderizar();
+    }
+}
+
+function toggleOcultar(id) {
+    const cuenta = cuentas.find(c => c.id === id);
+    if (cuenta) cuenta.oculto = !cuenta.oculto;
+    renderizar();
+}
+
+function eliminarCuenta(id) {
+    cuentas = cuentas.filter(c => c.id !== id);
+    renderizar();
 }
 
 actualizarReloj();
 setInterval(actualizarReloj, 1000);
+document.getElementById('new-trans-fecha').valueAsDate = new Date();
 </script>
 
 </body>
