@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💚 Finanzas Mozares</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            background: linear-gradient(135deg, #faf8f3 0%, #f0ebe0 100%);
+            min-height: 100vh;
+            color: #2d3e3b;
+        }
+        
+        /* ===== PORTADA ===== */
+        .portada {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        .portada-container {
+            text-align: center;
+            max-width: 420px;
+            width: 100%;
+        }
+        
+        .portada-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #2d3e3b;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .portada-card {
+            background: white;
+            border-radius: 2.5rem;
+            padding: 3rem 2rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
+        }
+        
+        .reloj {
+            font-family: 'Courier Prime', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #2d3e3b;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        .fecha {
+            font-size: 0.95rem;
+            color: #8b9693;
+            margin-bottom: 2.5rem;
+            text-transform: capitalize;
+            letter-spacing: 0.05em;
+        }
+        
+        .frase-contenedor {
+            margin-bottom: 2.5rem;
+            min-height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .frase {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #6ba59a;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        .pregunta {
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: #2d3e3b;
+            font-size: 1rem;
+        }
+        
+        .botones-usuario {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .btn-usuario {
+            padding: 1rem;
+            border: none;
+            border-radius: 1.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-el {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+        }
+        
+        .btn-ella {
+            background: linear-gradient(135deg, #f6a192 0%, #e88a7e 100%);
+        }
+        
+        .btn-usuario:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-usuario:active {
+            transform: translateY(-2px);
+        }
+        
+        /* ===== NAVEGACIÓN ===== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 1.5rem;
+        }
+        
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .navbar-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #2d3e3b;
+        }
+        
+        .btn-salir {
+            background: #e88a7e;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-salir:hover {
+            background: #d4765f;
+            transform: translateY(-2px);
+        }
+        
+        /* ===== DASHBOARD ===== */
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        .dashboard-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2d3e3b;
+            margin-bottom: 2.5rem;
+        }
+        
+        /* ===== TABS ===== */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid rgba(107, 165, 154, 0.2);
+            overflow-x: auto;
+        }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #8b9693;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .tab-btn.active {
+            color: #6ba59a;
+            border-bottom-color: #6ba59a;
+        }
+        
+        /* ===== CARDS ===== */
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .card-label {
+            font-size: 0.8rem;
+            color: #8b9693;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-titulo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3e3b;
+            margin-bottom: 1rem;
+        }
+        
+        .card-valor {
+            font-family: 'Courier Prime', monospace;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #6ba59a;
+        }
+        
+        .grid-cuentas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* ===== TRANSACCIONES ===== */
+        .transaccion-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(107, 165, 154, 0.1);
+        }
+        
+        .transaccion-item:last-child {
+            border-bottom: none;
+        }
+        
+        .transaccion-info {
+            flex: 1;
+        }
+        
+        .transaccion-tipo {
+            font-weight: 600;
+            color: #2d3e3b;
+            margin-bottom: 0.25rem;
+        }
+        
+        .transaccion-fecha {
+            font-size: 0.85rem;
+            color: #8b9693;
+        }
+        
+        .transaccion-monto {
+            font-family: 'Courier Prime', monospace;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .monto-gasto {
+            color: #e88a7e;
+        }
+        
+        .monto-ingreso {
+            color: #6ba59a;
+        }
+        
+        /* ===== FORM ===== */
+        .form-grupo {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2d3e3b;
+            font-size: 0.95rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid rgba(107, 165, 154, 0.2);
+            border-radius: 0.8rem;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #6ba59a;
+            box-shadow: 0 0 0 3px rgba(107, 165, 154, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #6ba59a 0%, #5a9183 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(107, 165, 154, 0.3);
+        }
+        
+        /* ===== OCULTAR ===== */
+        .hidden {
+            display: none !important;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* ===== ANIMACIONES ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .portada-titulo {
+                font-size: 2.5rem;
+            }
+            
+            .reloj {
+                font-size: 2.5rem;
+            }
+            
+            .dashboard-titulo {
+                font-size: 1.8rem;
+            }
+            
+            .grid-cuentas {
+                grid-template-columns: 1fr;
+            }
+            
+            .tabs {
+                flex-wrap: wrap;
+            }
+            
+            .tab-btn {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<div id="portada" class="portada">
+    <div class="portada-container">
+        <h1 class="portada-titulo">💚 Finanzas Mozares</h1>
+        <div class="portada-card">
+            <div class="reloj" id="reloj">00:00:00</div>
+            <div class="fecha" id="fecha">Lunes, 1 de enero</div>
+            <div class="frase-contenedor">
+                <p class="frase" id="frase">Cargando frase del día...</p>
+            </div>
+            <p class="pregunta">¿Quién eres?</p>
+            <div class="botones-usuario">
+                <button class="btn-usuario btn-el" onclick="iniciarSesion('el')">💙 Él</button>
+                <button class="btn-usuario btn-ella" onclick="iniciarSesion('ella')">🧡 Ella</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="navbar-content">
+            <h1 class="navbar-titulo">💚 Finanzas Mozares</h1>
+            <button class="btn-salir" onclick="cerrarSesion()">Salir</button>
+        </div>
+    </div>
+    
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="dashboard">
+        <h2 class="dashboard-titulo">📊 Dashboard - <span id="usuario-nombre">Él</span></h2>
+        
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="cambiarTab('resumen')">Resumen</button>
+            <button class="tab-btn" onclick="cambiarTab('cuentas')">Cuentas</button>
+            <button class="tab-btn" onclick="cambiarTab('transacciones')">Transacciones</button>
+            <button class="tab-btn" onclick="cambiarTab('presupuesto')">Presupuesto</button>
+        </div>
+        
+        <!-- RESUMEN -->
+        <div id="tab-resumen" class="tab-content active">
+            <div class="grid-cuentas" id="cuentas-resumen"></div>
+            
+            <div class="card">
+                <h3 class="card-titulo">💰 Últimas transacciones</h3>
+                <div id="transacciones-recientes"></div>
+            </div>
+        </div>
+        
+        <!-- CUENTAS -->
+        <div id="tab-cuentas" class="tab-content">
+            <div class="grid-cuentas" id="cuentas-detalle"></div>
+            
+            <div class="card">
+                <h3 class="card-titulo">➕ Agregar nueva cuenta</h3>
+                <div class="form-grupo">
+                    <label class="form-label">Nombre de la cuenta</label>
+                    <input type="text" class="form-input" id="nueva-cuenta-nombre" placeholder="Ej: Tarjeta de débito">
+                </div>
+                <div class="form-grupo">
+                    <label class="form-label">Saldo inicial</label>
+                    <input type="number" class="form-input" id="nueva-cuenta-saldo" placeholder="0.00">
+                </div>
+                <button class="btn-primary" onclick="agregarCuenta()">Crear cuenta</button>
+            </div>
+        </div>
+        
+        <!-- TRANSACCIONES -->
+        <div id="tab-transacciones" class="tab-content">
+            <div class="card">
+                <h3 class="card-titulo">📝 Registrar transacción</h3>
+                <div class="form-grupo">
+                    <label class="form-label">Tipo</label>
+                    <select class="form-input" id="transaccion-tipo">
+                        <option value="gasto">Gasto</option>
+                        <option value="ingreso">Ingreso</option>
+                        <option value="transferencia">Transferencia</option>
+                    </select>
+                </div>
+                <div class="form-grupo">
+                    <label class="form-label">Monto</label>
+                    <input type="number" class="form-input" id="transaccion-monto" placeholder="0.00">
+                </div>
+                <div class="form-grupo">
+                    <label class="form-label">Descripción</label>
+                    <input type="text" class="form-input" id="transaccion-desc" placeholder="Ej: Supermercado">
+                </div>
+                <button class="btn-primary" onclick="agregarTransaccion()">Registrar</button>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-titulo">📋 Historial</h3>
+                <div id="transacciones-historial"></div>
+            </div>
+        </div>
+        
+        <!-- PRESUPUESTO -->
+        <div id="tab-presupuesto" class="tab-content">
+            <div class="card">
+                <h3 class="card-titulo">📊 Presupuesto mensual</h3>
+                <p style="color: #8b9693; margin-bottom: 1.5rem;">Próximamente podrás establecer y monitorear tu presupuesto mensual por categoría.</p>
+                <p style="color: #6ba59a; font-weight: 600;">✨ Funcionalidad en desarrollo</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js"></script>
+
+<script>
+// Firebase Config
+const firebaseConfig = {
+    apiKey: "AIzaSyDI692ZfVBI6daYfmyH23bGdi8EEaDrfOc",
+    authDomain: "finanzas-mozares-app.firebaseapp.com",
+    databaseURL: "https://finanzas-mozares-app-default-rtdb.firebaseio.com",
+    projectId: "finanzas-mozares-app",
+    storageBucket: "finanzas-mozares-app.firebasestorage.app",
+    messagingSenderId: "725889471869",
+    appId: "1:725889471869:web:b57329edf1f9b684b2e814"
+};
+
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.database(app);
+
+// Variables globales
+let usuarioActual = null;
+let cuentas = [];
+let transacciones = [];
+
+const frases = [
+    '💚 Juntos construimos nuestro futuro',
+    '💰 Dinero es herramienta, no preocupación',
+    '📊 Transparencia crea confianza',
+    '🎯 Cada peso cuenta en nuestros sueños',
+    '✨ Lo importante es el plan, no la prisa',
+    '🌱 Sembramos hoy, cosechamos mañana',
+    '❤️ Decisiones juntas, victorias juntas',
+    '🏠 Nuestro hogar merece lo mejor',
+];
+
+// Inicializar cuentas
+cuentas = [
+    { id: 1, nombre: 'Débito Él', saldo: 15000 },
+    { id: 2, nombre: 'Débito Ella', saldo: 12000 },
+    { id: 3, nombre: 'Ahorros Familia', saldo: 50000 },
+];
+
+transacciones = [
+    { id: 1, tipo: 'gasto', monto: 500, desc: 'Supermercado', fecha: '2026-06-08' },
+    { id: 2, tipo: 'ingreso', monto: 2000, desc: 'Pago de trabajo', fecha: '2026-06-07' },
+];
+
+// Actualizar reloj
+function actualizarReloj() {
+    const ahora = new Date();
+    document.getElementById('reloj').textContent = ahora.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    document.getElementById('fecha').textContent = ahora.toLocaleDateString('es-MX', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    const frase = frases[ahora.getDate() % frases.length];
+    document.getElementById('frase').textContent = `"${frase}"`;
+}
+
+// Iniciar sesión
+function iniciarSesion(usuario) {
+    usuarioActual = usuario;
+    document.getElementById('portada').classList.add('hidden');
+    document.getElementById('dashboard').classList.remove('hidden');
+    document.getElementById('usuario-nombre').textContent = usuario === 'el' ? '💙 Él' : '🧡 Ella';
+    renderizarDashboard();
+}
+
+// Cerrar sesión
+function cerrarSesion() {
+    usuarioActual = null;
+    document.getElementById('portada').classList.remove('hidden');
+    document.getElementById('dashboard').classList.add('hidden');
+}
+
+// Cambiar tab
+function cambiarTab(tab) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(`tab-${tab}`).classList.add('active');
+    event.target.classList.add('active');
+}
+
+// Renderizar dashboard
+function renderizarDashboard() {
+    // Resumen
+    let html = '';
+    cuentas.forEach(cuenta => {
+        html += `
+            <div class="card">
+                <p class="card-label">Cuenta</p>
+                <h3 class="card-titulo">${cuenta.nombre}</h3>
+                <p class="card-valor">$${cuenta.saldo.toLocaleString('es-MX')}</p>
+            </div>
+        `;
+    });
+    document.getElementById('cuentas-resumen').innerHTML = html;
+    
+    // Detalle de cuentas
+    document.getElementById('cuentas-detalle').innerHTML = html;
+    
+    // Transacciones recientes
+    let transHTML = '';
+    transacciones.slice(0, 3).forEach(trans => {
+        const icono = trans.tipo === 'gasto' ? '📉' : '📈';
+        const clase = trans.tipo === 'gasto' ? 'monto-gasto' : 'monto-ingreso';
+        const signo = trans.tipo === 'gasto' ? '-' : '+';
+        transHTML += `
+            <div class="transaccion-item">
+                <div class="transaccion-info">
+                    <p class="transaccion-tipo">${icono} ${trans.desc}</p>
+                    <p class="transaccion-fecha">${trans.fecha}</p>
+                </div>
+                <p class="transaccion-monto ${clase}">${signo}$${trans.monto.toLocaleString('es-MX')}</p>
+            </div>
+        `;
+    });
+    document.getElementById('transacciones-recientes').innerHTML = transHTML;
+    
+    // Historial
+    let historiHTML = '';
+    transacciones.forEach(trans => {
+        const icono = trans.tipo === 'gasto' ? '📉' : '📈';
+        const clase = trans.tipo === 'gasto' ? 'monto-gasto' : 'monto-ingreso';
+        const signo = trans.tipo === 'gasto' ? '-' : '+';
+        historiHTML += `
+            <div class="transaccion-item">
+                <div class="transaccion-info">
+                    <p class="transaccion-tipo">${icono} ${trans.desc}</p>
+                    <p class="transaccion-fecha">${trans.fecha}</p>
+                </div>
+                <p class="transaccion-monto ${clase}">${signo}$${trans.monto.toLocaleString('es-MX')}</p>
+            </div>
+        `;
+    });
+    document.getElementById('transacciones-historial').innerHTML = historiHTML;
+}
+
+function agregarCuenta() {
+    const nombre = document.getElementById('nueva-cuenta-nombre').value;
+    const saldo = parseFloat(document.getElementById('nueva-cuenta-saldo').value);
+    if (!nombre || !saldo) return;
+    
+    cuentas.push({ id: Date.now(), nombre, saldo });
+    document.getElementById('nueva-cuenta-nombre').value = '';
+    document.getElementById('nueva-cuenta-saldo').value = '';
+    renderizarDashboard();
+}
+
+function agregarTransaccion() {
+    const tipo = document.getElementById('transaccion-tipo').value;
+    const monto = parseFloat(document.getElementById('transaccion-monto').value);
+    const desc = document.getElementById('transaccion-desc').value;
+    if (!monto || !desc) return;
+    
+    transacciones.push({ id: Date.now(), tipo, monto, desc, fecha: new Date().toISOString().split('T')[0] });
+    document.getElementById('transaccion-monto').value = '';
+    document.getElementById('transaccion-desc').value = '';
+    renderizarDashboard();
+}
+
+// Inicializar
+window.addEventListener('load', () => {
+    actualizarReloj();
+    setInterval(actualizarReloj, 1000);
+});
+</script>
+
+</body>
+</html>
